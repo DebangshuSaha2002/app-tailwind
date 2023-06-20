@@ -4,6 +4,7 @@ const app = express();
 const os = require("os");
 const browser = require("browser-detect");
 const morgan = require("morgan");
+const { default: browserDetect } = require("browser-detect");
 app.use(express.json()); //To parse Payload
 app.use(morgan("dev")); //Used for logging, then what is the end point , which API is being called
 const PORT = 8080 || process.env.PORT;
@@ -76,6 +77,8 @@ app.get("/methods", (request, response) => {
     networkInterface: os.networkInterfaces(),
     typeOS: os.type(),
     uptimeOS: os.uptime(),
+    version: os.version(),
+    browserDetect: browser(request.headers["user-agent"]),
   });
 });
 
