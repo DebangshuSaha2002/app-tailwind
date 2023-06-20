@@ -1,11 +1,13 @@
-const http = require("http");
 const express = require("express");
 const chalk = require("chalk");
 const app = express();
 const os = require("os");
 const browser = require("browser-detect");
-app.use(express.json());
+const morgan = require("morgan");
+app.use(express.json()); //To parse Payload
+app.use(morgan("dev")); //Used for logging, then what is the end point , which API is being called
 const PORT = 8080 || process.env.PORT;
+
 let data = [
   {
     id: 1,
@@ -24,15 +26,16 @@ let data = [
   },
 ];
 
-app.get("/", (request, response) => {
+//GET data
+app.get("/user", (request, response) => {
   response.status(200).json({
-    name: "Falguni",
-    age: 21,
+    total: data.length,
+    data,
   });
 });
 
-app.post("/createUser", (request, response) => {
-  console.log(request.body);
+//create data
+app.post("/user", (request, response) => {
   data = [...data, request.body];
   response.status(201).json({
     message: "Data inserted",
@@ -41,21 +44,38 @@ app.post("/createUser", (request, response) => {
   });
 });
 
-app.get("/getUserData", (request, response) => {
+//edit data
+app.put("/user", (request, response) => {
+  const body = request.body;
+  const params = request.query;
+  const val = data.find((ele) => ele.id === +params.id);
+  val.name = body.name;
+
+  response.status(201).json({
+    status: 201,
+    message: "Details Updated",
+  });
+});
+
+//delete data
+app.delete("/user", (request, response) => {
+  const params = request.query;
+  const updatedData = data.filter((ele) => ele.id !== +params.id);
+  data = [...updatedData];
   response.status(200).json({
-    total: data.length,
-    data,
+    status: 200,
+    message: "User Deleted Successfully",
   });
 });
 
 app.get("/methods", (request, response) => {
   response.status = 200;
   response.json({
-    currentOS: OscillatorNode.platform(),
-    networkInterface: OscillatorNode.networkInterfaces(),
-    uptime: os.uptime(),
-    version: os.version(),
-    browser: browser(request.headers["user-agents"]),
+    currentOS: os.platform(),
+    defaultDir: os.tmpdir(),
+    networkInterface: os.networkInterfaces(),
+    typeOS: os.type(),
+    uptimeOS: os.uptime(),
   });
 });
 
