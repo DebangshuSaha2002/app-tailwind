@@ -7,6 +7,7 @@ const {
   editUserModel,
   deleteUserModel,
   currentWeatherModel,
+  forecastWeatherModel,
 } = require("../Models/Models");
 
 let data = [
@@ -128,8 +129,25 @@ const checkMethods = (request, response) => {
 
 const currentWeather = async (request, response) => {
   try {
-    const params = request.query;
-    const data = await currentWeatherModel();
+    const queryparams = request.query;
+    const data = await currentWeatherModel(queryparams);
+    response.status(200).json(data);
+  } catch (error) {
+    console.error(error.message);
+    const errorobj = {
+      total: 0,
+      data,
+      message: error.message,
+      status: 400,
+    };
+    response.status(400).json(errorobj);
+  }
+};
+
+const forecastWeather = async (request, response) => {
+  try {
+    const queryparams = request.query;
+    const data = await forecastWeatherModel(queryparams);
     response.status(200).json(data);
   } catch (error) {
     console.error(error.message);
@@ -150,4 +168,5 @@ module.exports = {
   deleteUser,
   checkMethods,
   currentWeather,
+  forecastWeather,
 };

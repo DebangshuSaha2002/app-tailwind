@@ -58,7 +58,7 @@ const deleteUserModel = (params) => {
   }
 };
 
-const currentWeatherModel = async () => {
+const currentWeatherModel = async (queryparams) => {
   try {
     const data = await axios.get(
       config.weatherApi.url +
@@ -66,11 +66,33 @@ const currentWeatherModel = async () => {
         "key=" +
         config.weatherApi.key +
         "&q=" +
-        "Jaipur" +
+        queryparams.city +
         "&aqi=" +
-        "no"
+        queryparams.aqi
     );
-    console.log(data.data);
+    return data.data;
+  } catch (error) {
+    console.error(error.message);
+    return error;
+  }
+};
+
+const forecastWeatherModel = async (queryparams) => {
+  try {
+    const data = await axios.get(
+      config.weatherApi.url +
+        "forecast.json?" +
+        "key=" +
+        config.weatherApi.key +
+        "&q=" +
+        queryparams.city +
+        "&days=" +
+        queryparams.days +
+        "&aqi=" +
+        queryparams.aqi +
+        "&alerts=" +
+        queryparams.alerts
+    );
     return data.data;
   } catch (error) {
     console.error(error.message);
@@ -84,4 +106,5 @@ module.exports = {
   editUserModel,
   deleteUserModel,
   currentWeatherModel,
+  forecastWeatherModel,
 };

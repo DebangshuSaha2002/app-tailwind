@@ -8,6 +8,7 @@ const {
   deleteUser,
   checkMethods,
   currentWeather,
+  forecastWeather,
 } = require("../Controllers/Controller");
 
 const morgan = require("morgan");
@@ -29,4 +30,6 @@ router.get("/methods", checkMethods);
 
 //WEATHER API
 router.get("/weatherAPI", currentWeather);
+
+router.get("/forecastWeather", forecastWeather);
 module.exports = router;
