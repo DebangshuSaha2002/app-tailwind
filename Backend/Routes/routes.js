@@ -31,5 +31,7 @@ router.get("/methods", checkMethods);
 //WEATHER API
 router.get("/weatherAPI", currentWeather);
 
+//Weather Forecast API
 router.get("/forecastWeather", forecastWeather);
+
 module.exports = router;
