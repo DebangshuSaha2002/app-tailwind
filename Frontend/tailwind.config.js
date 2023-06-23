@@ -20,12 +20,17 @@ module.exports = {
       white: "#fff",
       deeppurple: "#3a243b",
       softpurple: "#CBC3E3",
+      softgreen: "#E3F4F4",
+      softteel: "#AFD3E2",
+      softorange: "#FFBFA9",
+      deeporange: "#E9A178",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
       Lobster: ["Lobster Two", "cursive"],
       Quintessential: ["Quintessential", "cursive"],
+      greatvibes: ["Great Vibes", "cursive"],
     },
     screens: {
       sm: "640px",
@@ -49,6 +54,10 @@ module.exports = {
       "28rem": "28rem",
       "64rem": "64rem",
       "18rem": "18rem",
+      "38rem": "38rem",
+      "40rem": "40rem",
+      "45rem": "45rem",
+      "43rem": "43rem",
     },
     backgroundImage: {
       weather: "url('/src/Images/backgroudimage.webp')",
@@ -62,6 +71,7 @@ module.exports = {
       "10px": "10px",
       "2rem": "2rem",
       "15rem": "15rem",
+      "3.5rem": "3.5rem",
     },
     height: {
       "35rem": "35rem",

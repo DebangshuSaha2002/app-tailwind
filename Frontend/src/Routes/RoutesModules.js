@@ -5,6 +5,7 @@ import UseEffectHook from "../Components/UseEffectHook";
 import PageNotFound from "../Components/PageNotFound/PageNotFound.jsx";
 import BMI from "../Components/BMI/BMI.jsx";
 import Weather from "../Components/Weather/Weather.jsx";
+import SpaceX from "../Components/SpaceX/Space.jsx";
 const RoutesModules = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const RoutesModules = () => {
         <Route path="counter" element={<UseEffectHook />} />{" "}
         <Route path="bmi" element={<BMI />} />{" "}
         <Route path="weather" element={<Weather />} />{" "}
+        <Route path="spacex" element={<SpaceX />} />{" "}
         <Route path="*" element={<PageNotFound />} />{" "}
       </Routes>{" "}
     </>

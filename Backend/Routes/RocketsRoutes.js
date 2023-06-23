@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { AllRockets } = require("../Controllers/RocketController");
+const { AllRockets, OneRockets } = require("../Controllers/RocketController");
 router.get("/allRockets", AllRockets);
-
+router.get("/oneRockets", OneRockets);
 module.exports = router;
