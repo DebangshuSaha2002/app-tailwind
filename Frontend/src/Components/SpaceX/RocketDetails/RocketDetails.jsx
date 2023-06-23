@@ -2,6 +2,7 @@ import React from "react";
 import { BsRocketTakeoffFill } from "react-icons/bs";
 import { useState } from "react";
 import { useEffect } from "react";
+import "../RocketDetails/RocketDetails.css";
 const RocketDetails = ({
   id = "",
   desc = "",
@@ -49,7 +50,7 @@ const RocketDetails = ({
               <p className="font-serif text-1xl">{desc}</p>
               <div className="collapse">
                 <input type="checkbox" />
-                <div className="collapse-title text-normal font-medium flex justify-end">
+                <div className="collapse-title text-normal font-medium flex justify-end font-serif font-semibold">
                   more...
                 </div>
                 <div

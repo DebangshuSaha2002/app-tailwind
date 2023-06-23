@@ -4,7 +4,7 @@ import Input from "../../Shared/Input";
 const Counter = () => {
   return (
     <>
-      <div className="text-center my-1rem">
+      <div className="text-center my-1rem mt-5rem">
         <p className="lg:text-5xl sm:text-4xl md:text-4xl mt-4 ml-4 text-gray-dark font-Quintessential pt-2 mb-2">
           COUNTER{" "}
         </p>{" "}
