@@ -1,6 +1,6 @@
 const config = {
   weatherApi: {
-    key: "80021e7d1781465596d150354232106",
+    key: "25fb9c1d28184c5594c150333232706",
     url: "https://api.weatherapi.com/v1/",
   },
   rocketApi: {
